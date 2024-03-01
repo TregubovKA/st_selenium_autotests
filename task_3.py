@@ -6,9 +6,11 @@ from selenium.webdriver.common.by import By
 @pytest.fixture
 def browser(request):
     print("\nstart firefox browser for test..")
-    browser = webdriver.Firefox()
+    # browser = webdriver.Firefox()
     # Вызов конкретного браузера
-    # browser = webdriver.Firefox(firefox_binary="c:\\Program Files\\Firefox Nightly\\firefox.exe")
+    options = webdriver.FirefoxOptions()
+    options.binary_location = "C:\\Program Files\\Firefox Nightly\\firefox.exe"
+    browser = webdriver.Firefox(options)
     browser.maximize_window()
     browser.implicitly_wait(2)
     yield browser
