@@ -8,7 +8,7 @@ def browser(request):
     print("\nstart firefox browser for test..")
     browser = webdriver.Firefox()
     # Вызов конкретного браузера
-    # browser = webdriver.Firefox(firefox_binary="c:\\Program Files (x86)\\Nightly\\firefox.exe")
+    # browser = webdriver.Firefox(firefox_binary="c:\\Program Files\\Firefox Nightly\\firefox.exe")
     browser.maximize_window()
     browser.implicitly_wait(2)
     yield browser
