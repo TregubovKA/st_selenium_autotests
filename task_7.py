@@ -22,4 +22,4 @@ def test_task_4(browser):
         cards += category.find_elements(By.CSS_SELECTOR, 'li.product')
     for card in cards:
         stickers = card.find_elements(By.CSS_SELECTOR, 'div.sticker')
-        assert len(stickers) <= 1, "Карточка имеет 2 стикера"
+        assert len(stickers) == 1, "Карточка имеет 2 стикера"
