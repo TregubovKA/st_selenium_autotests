@@ -20,7 +20,7 @@ def test_task_8(browser):
     browser.find_element(By.XPATH, '//input[@name="password"]').send_keys('admin')
     browser.find_element(By.XPATH, '//button[@type="submit"]').click()
     rows = browser.find_elements(By.CSS_SELECTOR, 'tr.row')
-    for a in range(1, len(rows)):
+    for a in range(1, len(rows) + 1):
         country = browser.find_element(By.XPATH, f'//tr[@class="row"][{a}]//td[5]').get_attribute('innerText')
         countries.append(country)
         cnt_geozones = browser.find_element(By.XPATH, f'//tr[@class="row"][{a}]//td[6]').get_attribute('innerText')
@@ -28,7 +28,7 @@ def test_task_8(browser):
             browser.find_element(By.CSS_SELECTOR, 'tr.row td:nth-child(5) a').click()
             geozones = browser.find_elements(By.CSS_SELECTOR, 'table#table-zones tr')
             geozones_list = []
-            for i in range(2, len(geozones) - 1):
+            for i in range(2, len(geozones)):
                 geozones_table_els = browser.find_element(By.XPATH, f'//table[@id="table-zones"]//tr[{i}]')
                 geozones_list.append(geozones_table_els.find_element(By.CSS_SELECTOR, 'td:nth-child(3)')
                                      .get_attribute('innerText'))
