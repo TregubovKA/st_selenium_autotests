@@ -13,7 +13,7 @@ def browser(request):
     browser.quit()
 
 
-def test_task_4(browser):
+def test_task_7(browser):
 
     cards = []
     browser.get("http://localhost/litecart/en/")
