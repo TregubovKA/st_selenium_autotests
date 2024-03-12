@@ -25,7 +25,7 @@ def test_task_8(browser):
         countries.append(country)
         cnt_geozones = browser.find_element(By.XPATH, f'//tr[@class="row"][{a}]//td[6]').get_attribute('innerText')
         if int(cnt_geozones) > 0:
-            browser.find_element(By.CSS_SELECTOR, 'tr.row td:nth-child(5) a').click()
+            browser.find_element(By.CSS_SELECTOR, f'tr.row:nth-child({a+1}) td:nth-child(5) a').click()
             geozones = browser.find_elements(By.CSS_SELECTOR, 'table#table-zones tr')
             geozones_list = []
             for i in range(2, len(geozones)):
