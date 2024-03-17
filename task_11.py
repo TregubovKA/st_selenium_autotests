@@ -1,6 +1,4 @@
-import time
 import random
-
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -33,9 +31,7 @@ def rand_pass_generator():
 
 def rand_mail_generator():
     str1 = 'qwertyuiopasdfghjklzxcvbnm'
-    str2 = str1.upper()
-    str3 = str1 + str2
-    ls = list(str3)
+    ls = list(str1)
     random.shuffle(ls)
     email = ''.join([random.choice(ls) for x in range(8)])
     return email
@@ -56,7 +52,7 @@ def test_task_11(browser):
     browser.find_element(By.CSS_SELECTOR, 'input[name="address1"]').send_keys("Kukueva st.")
     browser.find_element(By.CSS_SELECTOR, 'input[name="postcode"]').send_keys("24800")
     browser.find_element(By.CSS_SELECTOR, 'input[name="city"]').send_keys("Kaluga")
-    browser.find_element(By.CSS_SELECTOR, 'span.selection').click()
+    browser.find_element(By.CSS_SELECTOR, 'span.select2').click()
     browser.find_element(By.XPATH, '//li[text()="United States"]').click()
     email = rand_mail_generator() + '@gmail.com'
     browser.find_element(By.CSS_SELECTOR, 'input[name="email"]').send_keys(email)
@@ -66,8 +62,7 @@ def test_task_11(browser):
     browser.find_element(By.CSS_SELECTOR, 'input[name="confirmed_password"]').send_keys(pswrd_user)
     browser.find_element(By.CSS_SELECTOR, 'button[type="submit"]').click()
     browser.find_element(By.XPATH, '//a[text()="Logout"]').click()
-    time.sleep(2)
     browser.find_element(By.CSS_SELECTOR, 'input[name="email"]').send_keys(email)
     browser.find_element(By.CSS_SELECTOR, 'input[name="password"]').send_keys(pswrd_user)
     browser.find_element(By.CSS_SELECTOR, 'button[name="login"]').click()
-    time.sleep(2)
+    browser.find_element(By.XPATH, '//a[text()="Logout"]').click()
