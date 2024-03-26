@@ -14,9 +14,26 @@ def browser(request):
     browser = webdriver.Chrome()
 
     browser.maximize_window()
+
     yield browser
     print("\nquit browser..")
     browser.quit()
+
+    # print("\nstart selenium grid for test..")
+    # fire_options = webdriver.FirefoxOptions()
+    # fire_options.browser_version("118.0")
+    # chrome_options = webdriver.ChromeOptions()
+    # browser1 = webdriver.Remote("http://192.168.35.171:4444", options=fire_options)
+    # browser2 = webdriver.Remote("http://192.168.35.171:4444", options=chrome_options)
+    #
+    # browser1.maximize_window()
+    # browser2.maximize_window()
+
+    # yield browser1 and browser2
+    # print("\nquit browser1..")
+    # browser1.quit()
+    # print("\nquit browser2..")
+    # browser2.quit()
 
 
 def find_new_window_and_switch_to(browser, main_window, old_windows):
