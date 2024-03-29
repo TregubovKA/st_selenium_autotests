@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
-from base_page import BasePage
-from product_page import ProductPage
+from pages.base_page import BasePage
+from pages.product_page import ProductPage
 
 
 class MainPage(BasePage):
